@@ -1,4 +1,5 @@
-DOCKER_COMPOSE_VERSION = "1.29.2"
+#!/bin/bash
+DOCKER_COMPOSE_VERSION="1.29.2"
 
 sudo apt-get update
 sudo apt-get install docker
