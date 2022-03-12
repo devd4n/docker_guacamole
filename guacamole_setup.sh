@@ -35,5 +35,5 @@ echo "DOCKER_GUACAMOLE_POSTGRES_PWD=$password" > ./.env
 cp ./template_user-mapping.xml $DOCKER_GUACAMOLE_HOME/user-mapping.xml
 mkdir -p ./init
 sudo docker run --rm guacamole/guacamole /opt/guacamole/bin/initdb.sh --postgres > ./init/initdb.sql
-
+mkdir -p ./postgresql/new_driver
 wget -O ./postgresql/new_driver/postgresql-42.3.3.jar https://jdbc.postgresql.org/download/postgresql-42.3.3.jar
