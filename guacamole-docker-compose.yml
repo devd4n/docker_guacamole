@@ -1,0 +1,77 @@
+####################################################################################
+# docker-compose file for Apache Guacamole
+# created by PCFreak 2017-06-28
+#
+# Apache Guacamole is a clientless remote desktop gateway. It supports standard
+# protocols like VNC, RDP, and SSH. We call it clientless because no plugins or
+# client software are required. Thanks to HTML5, once Guacamole is installed on
+# a server, all you need to access your desktops is a web browser.
+####################################################################################
+#
+# What does this file do?
+#
+# Using docker-compose it will:
+#
+# - create a network 'guacnetwork' with the 'bridge' driver.
+# - create a service 'guacd' from 'guacamole/guacd' connected to 'guacnetwork'
+# - create a service 'guacamole'(2)  from 'guacamole/guacamole/' conn. to 'guacnetwork'
+#
+#  You could remove the entire 'nginx' service from this file if you want to use your own
+#  reverse proxy in front of guacamole. If doing so, make sure you change the line
+#       - 8080/tcp
+#   to   - 8080:8080/tcp
+#  within the 'guacamole' service. This will expose the guacamole webinterface directly
+#  on port 8080 and you can use it for your own purposes.
+#
+#
+#
+# The initial login to the guacamole webinterface is:
+#
+#     Username: guacadmin
+#     Password: guacadmin
+#
+# Make sure you change it immediately!
+#
+# version            date              comment
+# 0.1                2022-03-12        initial release
+####################################################################################
+
+version: '1.0'
+
+# networks
+# create a network 'guacnetwork' in mode 'bridged'
+networks:
+  guacnetwork:
+    driver: bridge
+
+# services
+services:
+  # guacd
+  guacd:
+    image: guacamole/guacd
+    networks:
+      guacnetwork:
+    restart: always
+    volumes:
+    - ./drive:/drive:rw
+    - ./record:/record:rw
+  # guacamole
+  guacamole:
+    depends_on:
+    - guacd
+    environment:
+      GUACD_HOSTNAME: guacd
+    image: guacamole/guacamole
+    volumes:
+    - $DOCKER_GUACAMOLE_HOME/:$GUACAMOLE_HOME/:rw
+    links:
+    - guacd
+    networks:
+      guacnetwork:
+    ports:
+    ## enable next line if not using nginx
+    - 8080:8080/tcp
+    ## enable next line when using nginx
+    ##- 8080/tcp
+    restart: always
+#################################################################################
