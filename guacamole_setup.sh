@@ -32,9 +32,10 @@ echo "Enter password for Postgress-Container:"
 read -s password
 echo "DOCKER_GUACAMOLE_POSTGRES_PWD=$password" > ./.env
 
-cp ./template_user-mapping.xml $DOCKER_GUACAMOLE_HOME/user-mapping.xml
 mkdir -p ./init
 sudo docker run --rm guacamole/guacamole /opt/guacamole/bin/initdb.sh --postgres > ./init/initdb.sql
+
+mkdir -p ./postgresql
 wget -O ./postgresql/postgresql-42.3.3.jar https://jdbc.postgresql.org/download/postgresql-42.3.3.jar 
 wget https://apache.org/dyn/closer.lua/guacamole/1.4.0/binary/guacamole-auth-jdbc-1.4.0.tar.gz?action=download
 tar -xvfz guacamole-auth-jdbc-1.4.0.tar.gz
