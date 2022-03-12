@@ -1,7 +1,8 @@
 # guacamole_docker
 
 ## Setup
-wget https://github.com/devd4n/guacamole_docker.git  
+sudo apt-get install git
+git clone https://github.com/devd4n/guacamole_docker.git  
 chmod +x guacamole_setup.sh  
 ./guacamole_setup.sh  
 
