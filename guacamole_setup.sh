@@ -30,9 +30,7 @@ docker-compose --version
 mkdir -p ./srv/guacamole
 echo "Enter password for Postgress-Container:"
 read -s password
-export DOCKER_GUACAMOLE_POSTGRES_PWD=$password
-echo "export DOCKER_GUACAMOLE_POSTGRES_PWD=$password" >> ~/.bash_profile
-. ~/.bash_profile
+echo "DOCKER_GUACAMOLE_POSTGRES_PWD=$password" > ./.env
 
 cp ./template_user-mapping.xml $DOCKER_GUACAMOLE_HOME/user-mapping.xml
 mkdir -p ./init
