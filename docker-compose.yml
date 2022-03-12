@@ -62,7 +62,7 @@ services:
       POSTGRES_DB: guacamole_db
       POSTGRES_PASSWORD: "${DOCKER_GUACAMOLE_POSTGRES_PWD}"
       POSTGRES_USER: guacamole_user
-    image: postgres
+    image: "postgres:12.10"
     networks:
       guacnetwork:
     restart: always
