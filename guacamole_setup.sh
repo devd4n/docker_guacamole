@@ -36,4 +36,4 @@ echo "export DOCKER_GUACAMOLE_POSTGRES_PWD=$password" >> ~/.bash_profile
 
 cp ./template_user-mapping.xml $DOCKER_GUACAMOLE_HOME/user-mapping.xml
 mkdir -p ./init
-docker run --rm guacamole/guacamole /opt/guacamole/bin/initdb.sh --postgres > ./init/initdb.sql
+sudo docker run --rm guacamole/guacamole /opt/guacamole/bin/initdb.sh --postgres > ./init/initdb.sql
