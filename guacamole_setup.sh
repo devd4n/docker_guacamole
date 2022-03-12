@@ -19,7 +19,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docke
 # Install Docker Engine
 # Update the apt package index, and install the latest version of Docker Engine and containerd, or go to the next step to install a specific version:
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo apt-get --yes install docker-ce docker-ce-cli containerd.io
 
 # install docker-compose https://docs.docker.com/compose/install/
 sudo curl -L "https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -38,6 +38,6 @@ sudo docker run --rm guacamole/guacamole /opt/guacamole/bin/initdb.sh --postgres
 mkdir -p ./postgresql
 wget -O ./postgresql/postgresql-42.3.3.jar https://jdbc.postgresql.org/download/postgresql-42.3.3.jar 
 wget -O ./guacamole-auth-jdbc-1.4.0.tar.gz ./https://apache.org/dyn/closer.lua/guacamole/1.4.0/binary/guacamole-auth-jdbc-1.4.0.tar.gz?action=download
-tar -xvfz guacamole-auth-jdbc-1.4.0.tar.gz
-cp ./guacamole-auth-jdbc-1.4.0/guacamole-auth-jdbc-1.4.0.jar ./postgresql/
+tar xvfz ./guacamole-auth-jdbc-1.4.0.tar.gz
+cp ./guacamole-auth-jdbc-1.4.0/sqlserver/guacamole-auth-jdbc-sqlserver-1.4.0.jar ./postgresql/
 rm -r./guacamole-auth-jdbc-1.4.0
