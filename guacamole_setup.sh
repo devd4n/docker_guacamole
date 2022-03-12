@@ -28,6 +28,7 @@ echo "Docker-Compose-Version:"
 docker-compose --version
 
 mkdir -p ./srv/guacamole
+export DOCKER_GUACAMOLE_HOME=./srv/guacamole
 echo "export DOCKER_GUACAMOLE_HOME=./srv/guacamole" > ~/.bash_profile
 
 mv ./template_user-mapping.xml $DOCKER_GUACAMOLE_HOME/user-mapping.xml
