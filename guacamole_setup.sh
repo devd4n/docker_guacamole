@@ -1,7 +1,7 @@
 #!/bin/bash
 DOCKER_COMPOSE_VERSION="1.29.2"
-PATH_POSTGRES_JDBC = "https://jdbc.postgresql.org/download/postgresql-42.2.25.jre7.jar"
-NAME_POSTGRES_JDBC = "postgresql-42.2.25.jre7.jar"
+PATH_POSTGRES_JDBC="https://jdbc.postgresql.org/download/postgresql-42.2.25.jre7.jar"
+NAME_POSTGRES_JDBC="postgresql-42.2.25.jre7.jar"
 
 sudo apt-get update
 sudo apt-get install docker
