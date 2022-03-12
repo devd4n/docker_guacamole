@@ -1,5 +1,7 @@
 #!/bin/bash
 DOCKER_COMPOSE_VERSION="1.29.2"
+PATH_POSTGRES_JDBC = https://jdbc.postgresql.org/download/postgresql-42.2.25.jre7.jar
+NAME_POSTGRES_JDBC = postgresql-42.2.25.jre7.jar
 
 sudo apt-get update
 sudo apt-get install docker
@@ -33,7 +35,7 @@ read -s password
 echo "DOCKER_GUACAMOLE_POSTGRES_PWD=$password" > ./.env
 
 mkdir -p ./postgresql
-wget -O ./postgresql/postgresql-42.3.3.jar https://jdbc.postgresql.org/download/postgresql-42.3.3.jar 
+wget -O ./$NAME_POSTGRES_JDBC $PATH_POSTGRES_JDBC
 wget -O ./guacamole-auth-jdbc-1.4.0.tar.gz https://apache.org/dyn/closer.lua/guacamole/1.4.0/binary/guacamole-auth-jdbc-1.4.0.tar.gz?action=download
 tar xvfz ./guacamole-auth-jdbc-1.4.0.tar.gz
 cp ./guacamole-auth-jdbc-1.4.0/sqlserver/guacamole-auth-jdbc-sqlserver-1.4.0.jar ./postgresql/
