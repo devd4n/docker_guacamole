@@ -69,7 +69,7 @@ services:
     volumes:
     - ./init:/docker-entrypoint-initdb.d:ro
     - ./data:/var/lib/postgresql/data:rw
-    - ./postgres:/opt/guacamole/postgres:rw
+    - ./postgresql:/opt/guacamole/postgresql:rw
   # guacamole
   guacamole:
     depends_on:
