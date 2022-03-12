@@ -80,11 +80,10 @@ services:
       POSTGRES_HOSTNAME: postgres
       POSTGRES_PASSWORD: "${DOCKER_GUACAMOLE_POSTGRES_PWD}"
       POSTGRES_USER: guacamole_user
-    environment:
-      GUACD_HOSTNAME: guacd
     image: guacamole/guacamole
     links:
     - guacd
+    - postgres
     networks:
       guacnetwork:
     ports:
