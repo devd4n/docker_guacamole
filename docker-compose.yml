@@ -87,14 +87,11 @@ services:
     networks:
       guacnetwork:
     volumes:
-    - ./postgresql/new_driver:/opt/guacamole/postgresql/new_driver:rw
+    - ./postgresql:/opt/guacamole/postgresql:rw
     ports:
     ## enable next line if not using nginx
     - 8080:8080/tcp
     ## enable next line when using nginx
     ##- 8080/tcp
-    command: >
-      bash -c "rm /opt/guacamole/postgresql/postgresql-*.jar &&
-               cp /opt/guacamole/postgresql/new_driver/* /opt/guacamole/postgresql/postgresql-*.jar"
     restart: always
 #################################################################################
