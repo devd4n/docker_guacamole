@@ -87,7 +87,7 @@ services:
     networks:
       guacnetwork:
     volumes:
-    - ./postgresql:/opt/guacamole/postgresql:rw
+    - ./postgresql:/opt/guacamole/postgresql/new_driver:rw
     ports:
     ## enable next line if not using nginx
     - 8080:8080/tcp
