@@ -36,9 +36,10 @@ echo "DOCKER_GUACAMOLE_POSTGRES_PWD=$password" > ./.env
 
 mkdir -p ./postgresql
 wget -O ./$NAME_POSTGRES_JDBC $PATH_POSTGRES_JDBC
+mv ./$NAME_POSTGRES_JDBC ./postgres/
 wget -O ./guacamole-auth-jdbc-1.4.0.tar.gz https://apache.org/dyn/closer.lua/guacamole/1.4.0/binary/guacamole-auth-jdbc-1.4.0.tar.gz?action=download
 tar xvfz ./guacamole-auth-jdbc-1.4.0.tar.gz
-cp ./guacamole-auth-jdbc-1.4.0/sqlserver/guacamole-auth-jdbc-sqlserver-1.4.0.jar ./postgresql/
+mv ./guacamole-auth-jdbc-1.4.0/sqlserver/guacamole-auth-jdbc-sqlserver-1.4.0.jar ./postgresql/
 rm -r ./guacamole-auth-jdbc-1.4.0
 
 mkdir -p ./init
