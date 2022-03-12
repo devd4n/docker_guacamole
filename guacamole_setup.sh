@@ -37,7 +37,7 @@ sudo docker run --rm guacamole/guacamole /opt/guacamole/bin/initdb.sh --postgres
 
 mkdir -p ./postgresql
 wget -O ./postgresql/postgresql-42.3.3.jar https://jdbc.postgresql.org/download/postgresql-42.3.3.jar 
-wget https://apache.org/dyn/closer.lua/guacamole/1.4.0/binary/guacamole-auth-jdbc-1.4.0.tar.gz?action=download
+wget -O ./guacamole-auth-jdbc-1.4.0.tar.gz ./https://apache.org/dyn/closer.lua/guacamole/1.4.0/binary/guacamole-auth-jdbc-1.4.0.tar.gz?action=download
 tar -xvfz guacamole-auth-jdbc-1.4.0.tar.gz
 cp ./guacamole-auth-jdbc-1.4.0/guacamole-auth-jdbc-1.4.0.jar ./postgresql/
 rm -r./guacamole-auth-jdbc-1.4.0
