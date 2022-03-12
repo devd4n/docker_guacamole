@@ -23,7 +23,7 @@ sudo curl -L "https://github.com/docker/compose/releases/download/<version>/dock
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 
-mkdir -p /srv/guacamole
-echo "export DOCKER_GUACAMOLE_HOME=/srv/guacamole" > ~/.bash_profile
+mkdir -p ./srv/guacamole
+echo "export DOCKER_GUACAMOLE_HOME=./srv/guacamole" > ~/.bash_profile
 
 mv ./template_user-mapping.xml $DOCKER_GUACAMOLE_HOME/user-mapping.xml
