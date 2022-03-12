@@ -1,3 +1,5 @@
+DOCKER_COMPOSE_VERSION = "1.29.2"
+
 sudo apt-get update
 sudo apt-get install docker
 
@@ -19,8 +21,9 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io
 
 # install docker-compose https://docs.docker.com/compose/install/
-sudo curl -L "https://github.com/docker/compose/releases/download/<version>/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
+echo "Docker-Compose-Version:"
 docker-compose --version
 
 mkdir -p ./srv/guacamole
