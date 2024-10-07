@@ -1,7 +1,7 @@
 #!/bin/bash
-DOCKER_COMPOSE_VERSION="1.29.2"
-PATH_POSTGRES_JDBC="https://jdbc.postgresql.org/download/postgresql-42.2.25.jre7.jar"
-NAME_POSTGRES_JDBC="postgresql-42.2.25.jre7.jar"
+DOCKER_COMPOSE_VERSION="2.29.6"
+PATH_POSTGRES_JDBC="https://jdbc.postgresql.org/download/postgresql-42.7.4.jar"
+NAME_POSTGRES_JDBC="postgresql-42.7.4.jar"
 OS=$(cat /etc/os-release | grep ^ID | sed 's/ID=//g')
 
 echo "OS found: $OS"
