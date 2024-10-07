@@ -40,10 +40,10 @@ echo "DOCKER_GUACAMOLE_POSTGRES_PWD=$password" > ./.env
 mkdir -p ./postgresql
 wget -O ./$NAME_POSTGRES_JDBC $PATH_POSTGRES_JDBC
 mv ./$NAME_POSTGRES_JDBC ./postgresql/
-wget -O ./guacamole-auth-jdbc-1.4.0.tar.gz https://apache.org/dyn/closer.lua/guacamole/1.4.0/binary/guacamole-auth-jdbc-1.4.0.tar.gz?action=download
-tar xvfz ./guacamole-auth-jdbc-1.4.0.tar.gz
-mv ./guacamole-auth-jdbc-1.4.0/postgresql/* ./postgresql/
-rm -r ./guacamole-auth-jdbc-1.4.0
+wget -O ./guacamole-auth-jdbc-1.5.5.tar.gz https://dlcdn.apache.org/guacamole/1.5.5/binary/guacamole-auth-jdbc-1.5.5.tar.gz
+tar xvfz ./guacamole-auth-jdbc-1.5.5.tar.gz
+mv ./guacamole-auth-jdbc-1.5.5/postgresql/* ./postgresql/
+rm -r ./guacamole-auth-jdbc-1.5.5
 
 mkdir -p ./init
 sudo docker run --rm guacamole/guacamole /opt/guacamole/bin/initdb.sh --postgres > ./init/initdb.sql
