@@ -50,7 +50,7 @@ services:
   guacd:
     image: guacamole/guacd
     networks:
-      guacnetwork:
+      - guacnetwork
     restart: always
     volumes:
     - ./drive:/drive:rw
@@ -65,7 +65,7 @@ services:
     #image: "postgres:9.6"
     image: postgres:15.2-alpine
     networks:
-      guacnetwork:
+      - guacnetwork
     restart: always
     volumes:
     - ./init:/docker-entrypoint-initdb.d:z
@@ -86,7 +86,7 @@ services:
     - guacd
     - postgres
     networks:
-      guacnetwork:
+      - guacnetwork
     volumes:
     - ./postgresql:/opt/guacamole/postgresql:rw
     - ./record:/record:ro
