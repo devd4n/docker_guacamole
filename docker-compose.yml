@@ -84,6 +84,7 @@ services:
       POSTGRES_HOSTNAME: postgres
       POSTGRES_PASSWORD: "${DOCKER_GUACAMOLE_POSTGRES_PWD}"
       POSTGRES_USER: guacamole_user
+      POSTGRESQL_AUTO_CREATE_ACCOUNTS: true
     image: guacamole/guacamole
    # links:
    # - guacd
