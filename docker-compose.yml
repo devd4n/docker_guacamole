@@ -68,8 +68,8 @@ services:
       guacnetwork:
     restart: always
     volumes:
-    - ./init:/docker-entrypoint-initdb.d:ro
-    - ./data:/var/lib/postgresql/data:rw
+    - ./init:/docker-entrypoint-initdb.d:z
+    - ./data:/var/lib/postgresql/data:Z
   # guacamole
   guacamole:
     depends_on:
@@ -89,6 +89,7 @@ services:
       guacnetwork:
     volumes:
     - ./postgresql:/opt/guacamole/postgresql:rw
+    - ./record:/record:ro
     ports:
     ## enable next line if not using nginx
     - 8080:8080/tcp
