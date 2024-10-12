@@ -46,4 +46,4 @@ echo "DOCKER_GUACAMOLE_POSTGRES_PWD=$password" > ./.env
 #rm -r ./guacamole-auth-jdbc-1.5.5
 
 mkdir -p ./init
-sudo docker run --rm guacamole/guacamole /opt/guacamole/bin/initdb.sh --postgres > ./init/initdb.sql
+sudo docker run --rm guacamole/guacamole /opt/guacamole/bin/initdb.sh --postgresql > ./init/initdb.sql
