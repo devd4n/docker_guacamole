@@ -18,3 +18,12 @@ docker-compose up -d
   
 ## Update packages and postgresql
 ... under development  
+
+## TSHOOT - Postgres Docker
+ssh -i .ssh/... root@...
+
+docker exec -it --user root <<container-id>> /bin/bash
+apt update
+apt install postgresql-client
+psql -U guacamole_user -p 5432 -h postgres guacamole_db
+\dt
